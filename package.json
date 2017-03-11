@@ -4,6 +4,7 @@
   "description": "Automatically respond to new issues",
   "main": "index.js",
   "scripts": {
+    "start": "probot index.js",
     "test": "mocha && xo"
   },
   "repository": {
@@ -21,6 +22,9 @@
   },
   "homepage": "https://github.com/probot/autoresponder#readme",
   "dependencies": {
-    "github-probot": "github:bkeepers/probot"
+    "github-probot": "github:probot/probot#wild-wild-west"
+  },
+  "devDependencies": {
+    "xo": "^0.17.1"
   }
 }
