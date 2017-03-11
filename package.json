@@ -1,0 +1,26 @@
+{
+  "name": "probot-autoresponder",
+  "version": "0.1.0",
+  "description": "Automatically respond to new issues",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha && xo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/probot/autoresponder.git"
+  },
+  "keywords": [
+    "probot",
+    "github"
+  ],
+  "author": "Brandon Keepers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/probot/autoresponder/issues"
+  },
+  "homepage": "https://github.com/probot/autoresponder#readme",
+  "dependencies": {
+    "github-probot": "github:bkeepers/probot"
+  }
+}
