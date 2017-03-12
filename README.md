@@ -2,6 +2,8 @@
 
 This is a GitHub Integration built with [probot](https://github.com/probot/probot) that automatically replies to opened GitHub issues with the contents of `.github/ISSUE_REPLY_TEMPLATE.md`.
 
+![](https://cloud.githubusercontent.com/assets/173/23834371/788d330e-0723-11e7-9e71-81d77c01267d.png)
+
 ## Deploying to Heroku
 
 0. [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) - Click this button and pick an **App Name** that Heroku is happy with. Before you can complete this, you'll need config variables from the next step.
