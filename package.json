@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/probot/autoresponder#readme",
   "dependencies": {
-    "github-probot": "github:probot/probot#wild-wild-west"
+    "github-probot": "github:probot/probot"
   },
   "devDependencies": {
     "xo": "^0.17.1"
