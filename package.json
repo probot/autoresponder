@@ -4,7 +4,7 @@
   "description": "Automatically respond to new issues",
   "main": "index.js",
   "scripts": {
-    "start": "probot ./index.js",
+    "start": "probot run ./index.js",
     "test": "mocha && xo"
   },
   "repository": {
