@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/probot/autoresponder#readme",
   "dependencies": {
-    "github-probot": "github:probot/probot"
+    "probot": "~0.2.0"
   },
   "devDependencies": {
     "xo": "^0.17.1"
