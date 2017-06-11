@@ -1,10 +1,9 @@
 module.exports = function(robot) {
-  robot.on('issues.opened', async function(event, context) {
-    const github = await robot.integration.asInstallation(event.payload.installation.id);
+  robot.on('issues.opened', async (event,  context) => {
     const options = context.repo({path: '.github/ISSUE_REPLY_TEMPLATE.md'});
-    const data = await github.repos.getContent(options);
-    const template = new Buffer(data.content, 'base64').toString();
+    const res = await context.github.repos.getContent(options);
+    const template = new Buffer(res.data.content, 'base64').toString();
 
-    return github.issues.createComment(context.issue({body: template}));
+    return context.github.issues.createComment(context.issue({body: template}));
   });
 }
