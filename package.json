@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "probot run ./index.js",
-    "test": "mocha && xo"
+    "test": "mocha && xo --extend probot"
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,12 @@
   },
   "homepage": "https://github.com/probot/autoresponder#readme",
   "dependencies": {
-    "probot": "~0.6.0"
+    "probot": "~0.7.2"
   },
   "devDependencies": {
+    "eslint-config-probot": "^0.1.0",
+    "expect": "^1.20.2",
+    "mocha": "^3.4.2",
     "xo": "^0.17.1"
   },
   "engines": {
