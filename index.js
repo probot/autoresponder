@@ -8,7 +8,7 @@ module.exports = robot => {
     } catch (err) {
       template = 'We couldn\'t find an `ISSUE_REPLY_TEMPLATE` in your `.github` folder!';
     }
-    robot.log(template);
+
     return context.github.issues.createComment(context.issue({body: template}));
   });
 };
