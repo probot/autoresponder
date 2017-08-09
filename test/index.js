@@ -19,7 +19,7 @@ describe('autoresponder', () => {
         // Response for getting content from '.github/ISSUE_REPLY_TEMPLATE.md'
         getContent: expect.createSpy().andReturn(Promise.resolve({
           data: {
-            content: Buffer.from(`Hello World!`).toString('base64')
+            content: Buffer.from(`ISSUE_REPLY_TEMPLATE: >\n  Hello World!`).toString('base64')
           }
         }))
       },
@@ -32,21 +32,39 @@ describe('autoresponder', () => {
     // Mock out GitHub client
     robot.auth = () => Promise.resolve(github);
   });
+  describe('it succeds', () => {
+    it('posts a comment when there is a config file', async () => {
+      await robot.receive(event);
 
-  it('posts a comment', async () => {
-    await robot.receive(event);
+      expect(github.repos.getContent).toHaveBeenCalledWith({
+        owner: 'robotland',
+        repo: 'test',
+        path: '.github/ISSUE_REPLY_TEMPLATE.yml'
+      });
 
-    expect(github.repos.getContent).toHaveBeenCalledWith({
-      owner: 'robotland',
-      repo: 'test',
-      path: '.github/ISSUE_REPLY_TEMPLATE.md'
+      expect(github.issues.createComment).toHaveBeenCalled();
+    });
+  });
+
+  describe('it fails', () => {
+    beforeEach(() => {
+      github.repos.getContent = expect.createSpy().andReturn(Promise.resolve({
+        data: {
+          content: Buffer.from(``).toString('base64')
+        }
+      }));
     });
 
-    expect(github.issues.createComment).toHaveBeenCalledWith({
-      owner: 'robotland',
-      repo: 'test',
-      number: 97,
-      body: 'Hello World!'
+    it('does not posts a comment when there is not a config file', async () => {
+      await robot.receive(event);
+
+      expect(github.repos.getContent).toHaveBeenCalledWith({
+        owner: 'robotland',
+        repo: 'test',
+        path: '.github/ISSUE_REPLY_TEMPLATE.yml'
+      });
+
+      expect(github.issues.createComment).toNotHaveBeenCalled();
     });
   });
 });
