@@ -1,9 +1,10 @@
 module.exports = robot => {
   robot.on('issues.opened', async context => {
-    const options = context.repo({path: '.github/ISSUE_REPLY_TEMPLATE.md'});
-    const res = await context.github.repos.getContent(options);
-    const template = new Buffer(res.data.content, 'base64').toString();
-
-    return context.github.issues.createComment(context.issue({body: template}));
+    const config = await context.config('ISSUE_REPLY_TEMPLATE.yml');
+    if (config) {
+      if (config.ISSUE_REPLY_TEMPLATE) {
+        return context.github.issues.createComment(context.issue({body: config.ISSUE_REPLY_TEMPLATE}));
+      }
+    }
   });
 };
