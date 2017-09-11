@@ -1,17 +1,17 @@
-const expect = require('expect');
-const {createRobot} = require('probot');
-const plugin = require('..');
-const event = require('./fixtures/issues.opened');
+const expect = require('expect')
+const {createRobot} = require('probot')
+const plugin = require('..')
+const event = require('./fixtures/issues.opened')
 
 describe('autoresponder', () => {
-  let robot;
-  let github;
+  let robot
+  let github
 
   beforeEach(() => {
-    robot = createRobot();
+    robot = createRobot()
 
     // Load the plugin
-    plugin(robot);
+    plugin(robot)
 
     // Mock out the GitHub API
     github = {
@@ -27,26 +27,26 @@ describe('autoresponder', () => {
       issues: {
         createComment: expect.createSpy()
       }
-    };
+    }
 
     // Mock out GitHub client
-    robot.auth = () => Promise.resolve(github);
-  });
+    robot.auth = () => Promise.resolve(github)
+  })
 
   it('posts a comment', async () => {
-    await robot.receive(event);
+    await robot.receive(event)
 
     expect(github.repos.getContent).toHaveBeenCalledWith({
       owner: 'robotland',
       repo: 'test',
       path: '.github/ISSUE_REPLY_TEMPLATE.md'
-    });
+    })
 
     expect(github.issues.createComment).toHaveBeenCalledWith({
       owner: 'robotland',
       repo: 'test',
       number: 97,
       body: 'Hello World!'
-    });
-  });
-});
+    })
+  })
+})
