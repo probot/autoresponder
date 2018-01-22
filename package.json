@@ -22,12 +22,13 @@
   },
   "homepage": "https://github.com/probot/autoresponder#readme",
   "dependencies": {
-    "probot": "^4.0.0"
+    "probot": "^5.0.0"
   },
   "devDependencies": {
     "eslint-plugin-import": "^2.7.0",
     "expect": "^1.20.2",
     "mocha": "^3.4.2",
+    "smee-client": "^1.0.1",
     "standard": "^10.0.3"
   },
   "engines": {
