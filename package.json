@@ -1,42 +1,41 @@
-{
-  "name": "probot-autoresponder",
-  "version": "0.1.0",
-  "description": "Automatically respond to new issues",
-  "main": "index.js",
-  "scripts": {
-    "start": "probot run ./index.js",
-    "test": "mocha && standard"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/probot/autoresponder.git"
-  },
-  "keywords": [
-    "probot",
-    "github"
-  ],
-  "author": "Brandon Keepers",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/probot/autoresponder/issues"
-  },
-  "homepage": "https://github.com/probot/autoresponder#readme",
-  "dependencies": {
-    "probot": "^5.0.0"
-  },
-  "devDependencies": {
-    "eslint-plugin-import": "^2.7.0",
-    "expect": "^1.20.2",
-    "mocha": "^3.4.2",
-    "smee-client": "^1.0.1",
-    "standard": "^10.0.3"
-  },
-  "engines": {
-    "node": "~7.7.0"
-  },
-  "standard": {
-    "env": [
-      "mocha"
-    ]
-  }
-}
+ {
+   "name": "probot-autoresponder",
+   "version": "0.1.0",
+   "description": "Automatically respond to new issues",
+   "main": "index.js",
+   "scripts": {
+     "start": "probot run ./index.js",
+     "test": "jest && standard"
+   },
+   "repository": {
+     "type": "git",
+     "url": "git+https://github.com/probot/autoresponder.git"
+   },
+   "keywords": [
+     "probot",
+     "github"
+   ],
+   "author": "Brandon Keepers",
+   "license": "ISC",
+   "bugs": {
+     "url": "https://github.com/probot/autoresponder/issues"
+   },
+   "homepage": "https://github.com/probot/autoresponder#readme",
+   "dependencies": {
+     "probot": "^5.0.0"
+   },
+   "devDependencies": {
+     "eslint-plugin-import": "^2.7.0",
+     "jest": "^22.2.2",
+     "smee-client": "^1.0.1",
+     "standard": "^10.0.3"
+   },
+   "engines": {
+     "node": "~7.7.0"
+   },
+   "standard": {
+     "env": [
+       "jest"
+     ]
+   }
+ }
