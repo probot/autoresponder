@@ -1,4 +1,3 @@
-const expect = require('expect')
 const {createRobot} = require('probot')
 const plugin = require('..')
 const event = require('./fixtures/issues.opened')
@@ -17,7 +16,7 @@ describe('autoresponder', () => {
     github = {
       repos: {
         // Response for getting content from '.github/ISSUE_REPLY_TEMPLATE.md'
-        getContent: expect.createSpy().andReturn(Promise.resolve({
+        getContent: jest.fn().mockImplementation(() => Promise.resolve({
           data: {
             content: Buffer.from(`Hello World!`).toString('base64')
           }
@@ -25,7 +24,7 @@ describe('autoresponder', () => {
       },
 
       issues: {
-        createComment: expect.createSpy()
+        createComment: jest.fn()
       }
     }
 
@@ -33,7 +32,7 @@ describe('autoresponder', () => {
     robot.auth = () => Promise.resolve(github)
   })
 
-  it('posts a comment', async () => {
+  test('posts a comment', async () => {
     await robot.receive(event)
 
     expect(github.repos.getContent).toHaveBeenCalledWith({
