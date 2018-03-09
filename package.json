@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/probot/autoresponder#readme",
   "dependencies": {
-    "probot": "^5.0.0"
+    "probot": "^6.0.0"
   },
   "devDependencies": {
     "eslint-plugin-import": "^2.7.0",
