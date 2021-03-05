@@ -7,20 +7,13 @@
     "start": "probot run ./index.js",
     "test": "jest && standard"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/probot/autoresponder.git"
-  },
+  "repository": "github:probot/autoresponder",
   "keywords": [
     "probot",
     "github"
   ],
   "author": "Brandon Keepers",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/probot/autoresponder/issues"
-  },
-  "homepage": "https://github.com/probot/autoresponder#readme",
   "dependencies": {
     "probot": "^6.0.0"
   },
