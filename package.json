@@ -15,7 +15,7 @@
   "author": "Brandon Keepers",
   "license": "ISC",
   "dependencies": {
-    "probot": "^6.0.0"
+    "probot": "^12.3.3"
   },
   "devDependencies": {
     "eslint-plugin-import": "^2.7.0",
